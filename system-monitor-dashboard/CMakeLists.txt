@@ -8,7 +8,7 @@ find_package(Qt6 6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.11.1)
 
 qt_add_executable(system-monitor-dashboard
-    app/main.cpp)
+    src/main.cpp)
 
 qt_add_qml_module(system-monitor-dashboard
     URI qml
