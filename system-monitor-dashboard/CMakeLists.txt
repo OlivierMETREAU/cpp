@@ -7,6 +7,7 @@ project(system-monitor-dashboard VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_compile_options(
     -Wall -Wextra -Wpedantic
@@ -15,8 +16,13 @@ add_compile_options(
 )
 
 # Qt
-find_package(Qt6 6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 6 REQUIRED COMPONENTS 
+    Quick
+    QuickControls2    
+    Qml)
 qt_standard_project_setup(REQUIRES 6.6)
+
+add_subdirectory(src/core)     # ← add this before the executable
 
 qt_add_executable(system-monitor-dashboard src/main.cpp)
 
@@ -26,7 +32,11 @@ qt_add_qml_module(system-monitor-dashboard
     QML_FILES qml/main.qml
 )
 
-target_link_libraries(system-monitor-dashboard PRIVATE Qt6::Quick)
+target_link_libraries(system-monitor-dashboard PRIVATE
+        Qt6::Quick
+        Qt6::QuickControls2   # ← add this
+        Qt6::Qml              # ← add this
+        core_lib)
 
 target_compile_options(system-monitor-dashboard PRIVATE
     $<$<CONFIG:Debug>:-fsanitize=address,undefined -fno-omit-frame-pointer>

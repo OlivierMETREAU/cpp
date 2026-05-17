@@ -1,9 +1,5 @@
 find_package(Catch2 3 REQUIRED)
 
-add_library(core_lib           # ← a library, not an executable
-    ${CMAKE_SOURCE_DIR}/src/core/systemSnapshot.cpp
-)
-
 add_executable(core_tests
     test_systemSnapshot.cpp
 )

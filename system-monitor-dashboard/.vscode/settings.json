@@ -1,5 +1,10 @@
 {
     "cmake.configureSettings": {
         "CMAKE_PREFIX_PATH" : "/opt/Qt/6.11.1/gcc_64"
-    }
+    },
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.arguments": [
+        "--compile-commands-dir=build/debug",
+        "--clang-tidy"
+    ]
 }
