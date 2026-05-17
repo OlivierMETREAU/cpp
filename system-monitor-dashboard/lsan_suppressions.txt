@@ -1,0 +1,6 @@
+# lsan_suppressions.txt
+# Qt/Wayland system library leaks — not our code
+leak:libwayland-client.so
+leak:libQt6WaylandClient.so
+leak:libQt6Qml.so
+leak:libQt6Quick.so

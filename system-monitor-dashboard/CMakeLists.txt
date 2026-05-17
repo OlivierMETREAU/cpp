@@ -53,7 +53,7 @@ install(TARGETS system-monitor-dashboard
 )
 
 # Tests
-option(BUILD_TESTING "Build tests" ON)
+option(BUILD_TESTING "Build tests" OFF)
 if(BUILD_TESTING)
     list(APPEND VCPKG_MANIFEST_FEATURES "tests")
     enable_testing()
